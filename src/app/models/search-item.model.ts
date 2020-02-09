@@ -1,6 +1,6 @@
 import { ItemSnippet } from './item-snippet.model';
 
-export interface SearchItemModel {
+export interface SearchItem {
   kind: string;
   etag: string;
   id: string;

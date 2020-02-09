@@ -1,4 +1,4 @@
-import { SnippetThumbnailDataModel } from './snippet-thumbnail-data.model';
+import { SnippetThumbnailData } from './snippet-thumbnail-data.model';
 
 export interface ItemSnippet {
   publishedAt: string;
@@ -6,11 +6,11 @@ export interface ItemSnippet {
   title: string;
   description: string;
   thumbnails: {
-    default: SnippetThumbnailDataModel;
-    medium: SnippetThumbnailDataModel;
-    high: SnippetThumbnailDataModel;
-    standard: SnippetThumbnailDataModel;
-    maxres: SnippetThumbnailDataModel;
+    default: SnippetThumbnailData;
+    medium: SnippetThumbnailData;
+    high: SnippetThumbnailData;
+    standard: SnippetThumbnailData;
+    maxres: SnippetThumbnailData;
   };
   channelTitle: string;
   tags: Array<string>;
