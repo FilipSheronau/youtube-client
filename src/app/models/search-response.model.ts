@@ -1,11 +1,11 @@
 import { SearchItem } from './search-item.model';
 
 export interface SearchResponse {
-  kind: string;
-  etag: string;
-  pageInfo: {
-    totalResults: number;
-    resultsPerPage: number;
+  kind?: string;
+  etag?: string;
+  pageInfo?: {
+    totalResults?: number;
+    resultsPerPage?: number;
   };
-  items: Array<SearchItem>;
+  items?: Array<SearchItem>;
 }
