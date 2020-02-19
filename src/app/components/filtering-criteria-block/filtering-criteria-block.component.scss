@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  background-color: #E5E5E5;
+}
+
+.filtering-criteria-block__sort-list {
+  max-width: 1200px;
+  padding: 0 20px;
+  min-height: 50px;
+  list-style-type: none;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filtering-criteria-block__sort-list li {
+  display: block;
+}
+
+span {
+  margin: 0 0 0 10px;
+  display: block;
+  color: #929292;
+  font-size: 12px;
+}
+
+a {
+  display: block;
+  margin: 0 10px;
+  text-decoration: none;
+  color: #2F80ED;
+  font-size: 12px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+input {
+  display: block;
+  width: 5px;
+  height: 13px;
+  border: none;
+  flex-grow: 1;
+}
+
+.filtering-criteria-block__word-sort {
+  flex-basis: 290px;
+  height: 14px;
+  display: flex!important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filtering-criteria-block__word-sort a {
+  display: block;
+  width: 120px;
+}
+
+.filtering-criteria-block__word-sort form {
+  display: flex;
+  flex-basis: 150px;
+}

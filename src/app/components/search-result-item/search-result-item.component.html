@@ -1,0 +1,21 @@
+<img [src]="dataItem.snippet.thumbnails.medium.url" [alt]="dataItem.snippet.title" class="search-result-item__video-thumbnail">
+<ul class="search-result-item__statistical-info">
+  <li class="search-result-item__views-count">
+    <img src="../../../assets/img/viewed.png" alt="">
+    <span>{{dataItem.statistics.viewCount}}</span>
+  </li>
+  <li class="search-result-item__likes-count">
+    <img src="../../../assets/img/liked.png" alt="">
+    <span>{{dataItem.statistics.likeCount}}</span>
+  </li>
+  <li class="search-result-item__dislikes-count">
+    <img src="../../../assets/img/dislike.png" alt="">
+    <span>{{dataItem.statistics.dislikeCount}}</span>
+  </li>
+  <li class="search-result-item__comments-count">
+    <img src="../../../assets/img/comments.png" alt="">
+    <span>{{dataItem.statistics.commentCount}}</span>
+  </li>
+</ul>
+<div class="search-result-item__video-title">{{dataItem.snippet.title}}</div>
+<button class="search-result-item__more-button">more...</button>

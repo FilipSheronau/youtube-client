@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap&subset=cyrillic,cyrillic-ext');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  color: #4F4F4F;
+}
+
+body {
+  margin: 0;
+}
