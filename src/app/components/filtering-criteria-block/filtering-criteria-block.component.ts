@@ -59,6 +59,7 @@ export class FilteringCriteriaBlockComponent implements OnInit {
   }
 
   public onWordSortSwitch(event: Event): void {
+    event.preventDefault();
     if (this.wordSort === 'by word or sentance') {
       this.wordSort = 'by word or sentance \u25CF';
       this.isWordSort = true;
