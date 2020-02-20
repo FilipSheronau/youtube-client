@@ -12,6 +12,7 @@ import { SearchResultItemComponent } from './components/search-result-item/searc
 import { BorderColorDirective } from './directives/border-color.directive';
 import { SearchPipe } from './pipes/search.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { WordFilterPipe } from './pipes/word-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SortPipe } from './pipes/sort.pipe';
     BorderColorDirective,
     SearchPipe,
     SortPipe,
+    WordFilterPipe,
   ],
   imports: [
     BrowserModule,

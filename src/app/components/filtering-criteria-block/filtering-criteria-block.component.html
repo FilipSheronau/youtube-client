@@ -1,11 +1,11 @@
 <ul class="filtering-criteria-block__sort-list">
-  <li><span>Sorting by:</span></li>
-  <li><a href="#" (click)="onDateSort($event)">{{dateSort}}</a></li>
-  <li><a href="#" (click)="onViewsSort($event)">{{viewsSort}}</a></li>
+  <li class="filtering-criteria-block__title"><span>Sorting by:</span></li>
+  <li class="filtering-criteria-block__date-sort"><a href="#" (click)="onDateSort($event)">{{dateSort}}</a></li>
+  <li class="filtering-criteria-block__views-sort"><a href="#" (click)="onViewsSort($event)">{{viewsSort}}</a></li>
   <li class="filtering-criteria-block__word-sort">
-    <a href="#" (click)="onWordSort($event)">by word or sentance</a>
+    <a href="#" (click)="onWordSortSwitch($event)">{{wordSort}}</a>
     <form>
-      <input type="text">
+      <input (input)="onWordSort()" #filterInput type="text">
     </form>
   </li>
 </ul>
