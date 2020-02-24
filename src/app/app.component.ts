@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Sort } from './models/sort';
-import { Filter } from './models/filter';
+import { Sort } from './youtube/models/sort';
+import { Filter } from './youtube/models/filter';
+import { SearchItem } from './youtube/models/search-item.model';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Filter } from './models/filter';
 })
 export class AppComponent {
   public isFilteringBlock: boolean = false;
-  public searchData: string;
+  public searchData: SearchItem[];
   public sortData: Sort = {data: '', arrow: ''};
   public wordFilterData: Filter = {value: '', isOn: false};
 
@@ -17,7 +18,7 @@ export class AppComponent {
     this.isFilteringBlock = !this.isFilteringBlock;
   }
 
-  public search(event: string): void {
+  public search(event: SearchItem[]): void {
     this.searchData = event;
   }
 

@@ -4,7 +4,7 @@
   <li class="filtering-criteria-block__views-sort"><a href="#" (click)="onViewsSort($event)">{{viewsSort}}</a></li>
   <li class="filtering-criteria-block__word-sort">
     <a href="#" (click)="onWordSortSwitch($event)">{{wordSort}}</a>
-    <form>
+    <form (submit)="$event.preventDefault()">
       <input (input)="onWordSort()" #filterInput type="text">
     </form>
   </li>

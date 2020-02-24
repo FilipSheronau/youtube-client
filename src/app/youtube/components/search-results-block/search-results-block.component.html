@@ -1,0 +1,1 @@
+<app-search-result-item *ngFor="let item of searchData | sort:sortData | wordFilter:wordFilterData" [dataItem]="item" [appBorderColor]="item.snippet.publishedAt"></app-search-result-item>

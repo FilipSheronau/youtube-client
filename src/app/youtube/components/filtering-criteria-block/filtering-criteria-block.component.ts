@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { Sort } from 'src/app/models/sort';
-import { Filter } from 'src/app/models/filter';
+import { Sort } from 'src/app/youtube/models/sort';
+import { Filter } from 'src/app/youtube/models/filter';
 
 @Component({
   selector: 'app-filtering-criteria-block',

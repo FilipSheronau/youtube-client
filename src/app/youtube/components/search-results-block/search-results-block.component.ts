@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { youTubeResponse } from '../../mock-response';
-import { SearchItem } from 'src/app/models/search-item.model';
-import { Sort } from 'src/app/models/sort';
-import { Filter } from 'src/app/models/filter';
+import { SearchItem } from 'src/app/youtube/models/search-item.model';
+import { Sort } from 'src/app/youtube/models/sort';
+import { Filter } from 'src/app/youtube/models/filter';
+// import { youTubeResponse } from 'src/app/mock-response';
 
 @Component({
   selector: 'app-search-results-block',
@@ -10,11 +10,11 @@ import { Filter } from 'src/app/models/filter';
   styleUrls: ['./search-results-block.component.scss']
 })
 export class SearchResultsBlockComponent implements OnInit {
-  @Input() public searchData: string;
+  @Input() public searchData: SearchItem[];
   @Input() public sortData: Sort;
   @Input() public wordFilterData: Filter;
 
-  public items: SearchItem[] = youTubeResponse.items;
+  // public items: SearchItem[] = youTubeResponse.items;
 
   constructor() {}
 
