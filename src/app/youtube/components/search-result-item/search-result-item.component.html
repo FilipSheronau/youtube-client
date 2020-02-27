@@ -18,4 +18,4 @@
   </li>
 </ul>
 <div class="search-result-item__video-title">{{dataItem.snippet.title}}</div>
-<button class="search-result-item__more-button">more...</button>
+<button class="search-result-item__more-button" [routerLink]="['detailed-information', dataItem.id] ">more...</button>

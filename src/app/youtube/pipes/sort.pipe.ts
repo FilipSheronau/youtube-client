@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { SearchItem } from '../models/search-item.model';
-import { Sort } from '../models/sort';
 
 @Pipe({
   name: 'sort',
@@ -8,20 +7,20 @@ import { Sort } from '../models/sort';
 })
 export class SortPipe implements PipeTransform {
 
-  public transform(values: SearchItem[], sortData: Sort): SearchItem[] {
-    if (!values || sortData.data === '') { return values; }
+  public transform(values: SearchItem[], orderBy: string, arrow: string): SearchItem[] {
+    if (!values || orderBy === '') { return values; }
     return values.sort((a, b) => {
-      if (sortData.data === 'date') {
+      if (orderBy === 'date') {
         let dateA: number = Date.parse(a.snippet.publishedAt);
         let dateB: number = Date.parse(b.snippet.publishedAt);
-        if (sortData.arrow === 'down') { return dateA - dateB; }
-        if (sortData.arrow === 'up') { return dateB - dateA; }
+        if (arrow === 'down') { return dateA - dateB; }
+        if (arrow === 'up') { return dateB - dateA; }
       }
-      if (sortData.data === 'views') {
+      if (orderBy === 'views') {
         let viewsA: number = Number(a.statistics.viewCount);
         let viewsB: number = Number(b.statistics.viewCount);
-        if (sortData.arrow === 'down') { return viewsA - viewsB; }
-        if (sortData.arrow === 'up') { return viewsB - viewsA; }
+        if (arrow === 'down') { return viewsA - viewsB; }
+        if (arrow === 'up') { return viewsB - viewsA; }
       }
     });
   }

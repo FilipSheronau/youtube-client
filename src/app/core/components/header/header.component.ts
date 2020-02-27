@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { SearchItem } from 'src/app/youtube/models/search-item.model';
-import { youTubeResponse } from 'src/app/mock-response';
+import { Component, OnInit } from '@angular/core';
+import { CoreService } from '../../services/core.service';
 
 @Component({
   selector: 'app-header',
@@ -8,34 +7,21 @@ import { youTubeResponse } from 'src/app/mock-response';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Output() public toggleSettings: EventEmitter<void> = new EventEmitter();
-  @Output() public searchData: EventEmitter<SearchItem[]> = new EventEmitter();
   public searchValue: string = '';
   public searchPlaceHolderStr: string = 'What are you want to find out?';
   public searchPlaceHolder: string = this.searchPlaceHolderStr;
-  public items: SearchItem[] = youTubeResponse.items;
 
-  constructor() { }
-
-  private getItems(str: string): SearchItem[]  {
-    if (!this.items) { return []; }
-    if (!this.searchValue) { return this.items; }
-    return this.items.filter((value) => {
-      if (value.snippet.title) {
-        return value.snippet.title.toLowerCase().includes(this.searchValue.toLowerCase());
-      }
-    });
-  }
+  constructor(public coreService: CoreService) {  }
 
   public ngOnInit(): void {}
 
-  public onToggleSettings(event: Event): void {
+  public toggleSettings(event: Event): void {
     event.preventDefault();
-    this.toggleSettings.emit();
+    this.coreService.toggleSettings();
   }
 
-  public onSearch(event: Event): void {
+  public search(event: Event): void {
     event.preventDefault();
-    this.searchData.emit(this.getItems(this.searchValue));
+    this.coreService.search(true);
   }
 }

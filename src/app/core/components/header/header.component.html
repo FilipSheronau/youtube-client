@@ -1,22 +1,19 @@
 <div class="header__container">
-  <div class="header__login-block">
-    <a class="header__login-name" href="#">User</a>
-    <button class="header__login-logo"></button>
-  </div>
+  <app-login-block class="header__login-block"></app-login-block>
   <img class="header__logo" src="../../../../assets/img/logo.png" alt="">
-  <form class="header__form" (submit)="onSearch($event)">
+  <form class="header__form" (submit)="search($event)">
     <div class="header__search-input">
       <input
         type="text"
         name="searchTag"
         #searchInput
-        [(ngModel)]="searchValue"
+        [(ngModel)]="coreService.searchValue"
         [placeholder]="searchPlaceHolder"
         (focus)="searchPlaceHolder = ''"
         (blur)="searchPlaceHolder = searchPlaceHolderStr;"
       >
     </div>
     <button class="header__search-button" type="submit">search</button>
-    <button class="header__settings-button" (click)="onToggleSettings($event)"></button>
+    <button class="header__settings-button" (click)="toggleSettings($event)"></button>
   </form>
 </div>

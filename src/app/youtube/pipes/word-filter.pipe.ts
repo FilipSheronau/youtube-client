@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { SearchItem } from '../models/search-item.model';
-import { Filter } from '../models/filter';
 
 @Pipe({
   name: 'wordFilter',
@@ -8,11 +7,11 @@ import { Filter } from '../models/filter';
 })
 export class WordFilterPipe implements PipeTransform {
 
-  public transform(values: SearchItem[], par: Filter): SearchItem[] {
-    if (!values || !par.value || !par.isOn) { return values; }
+  public transform(values: SearchItem[], filterValue: string, isFilter: boolean): SearchItem[] {
+    if (!values || !filterValue || !isFilter) { return values; }
     return values.filter((value) => {
       const title: string[] = value.snippet.title.match(/[а-яa-z0-9-]+/gi);
-      const valueWord: string[] = par.value.match(/[а-яa-z0-9-]+/gi);
+      const valueWord: string[] = filterValue.match(/[а-яa-z0-9-]+/gi);
       if (!title || !valueWord) { return false; }
       let result: boolean = false;
       outerloop:
