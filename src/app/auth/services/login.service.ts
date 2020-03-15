@@ -1,29 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  public user: string = '';
+  public isUser: BehaviorSubject<boolean> =
+    this.islogin() ? new BehaviorSubject(true) : new BehaviorSubject(false);
+  public userName: BehaviorSubject<string> =
+    this.islogin() ? new BehaviorSubject(
+      JSON.parse(localStorage.getItem('token')).user) : new BehaviorSubject('');
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   public addUser(user: string, password: string): void {
     if (user && password) {
       localStorage.setItem('token', JSON.stringify({ user, password }));
-      if (localStorage.getItem('token')) { this.router.navigate(['/main']); }
+      if (localStorage.getItem('token')) {
+        this.isUser.next(true);
+        this.userName.next(user);
+        this.router.navigate(['/main']);
+      }
     } else {
       alert('Please Fill out the form');
     }
   }
 
-  public isUser(): boolean {
-    if (localStorage.getItem('token')) {
-      const tokenObject: {user: string, password: string} = JSON.parse(localStorage.getItem('token'));
-      this.user = tokenObject.user;
-    }
-    return localStorage.getItem('token') ? true : false;
+  public islogin(): boolean {
+    return (localStorage.getItem('token')) ? true : false;
   }
 
   public login(): void {
@@ -32,7 +37,10 @@ export class LoginService {
 
   public logout(): void {
     localStorage.removeItem('token');
-    this.user = '';
-    if (!localStorage.getItem('token')) { this.router.navigate(['/login']); }
+    if (!localStorage.getItem('token')) {
+      this.userName.next('');
+      this.isUser.next(false);
+      this.router.navigate(['/login']);
+    }
   }
 }

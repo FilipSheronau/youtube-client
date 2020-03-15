@@ -7,7 +7,6 @@ import { CoreService } from '../../services/core.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public searchValue: string = '';
   public searchPlaceHolderStr: string = 'What are you want to find out?';
   public searchPlaceHolder: string = this.searchPlaceHolderStr;
 
@@ -20,7 +19,7 @@ export class HeaderComponent implements OnInit {
     this.coreService.toggleSettings();
   }
 
-  public search(event: Event): void {
+  public search(event?: Event): void {
     event.preventDefault();
     this.coreService.search(true);
   }

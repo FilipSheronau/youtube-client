@@ -55,6 +55,7 @@ export class FilteringCriteriaBlockComponent implements OnInit {
 
   public onWordFilter(): void {
     this.coreService.filterValue = this.filterInput.nativeElement.value;
+    this.coreService.search();
   }
 
   public wordFilterSwitch(event: Event): void {
@@ -67,5 +68,6 @@ export class FilteringCriteriaBlockComponent implements OnInit {
       this.isWordFilter = false;
     }
     this.coreService.isFilter = this.isWordFilter;
+    this.onWordFilter();
   }
 }

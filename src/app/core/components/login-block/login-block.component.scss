@@ -9,13 +9,18 @@
 
 .login-block__container {
   height: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .login-block__login-name {
   font-weight: bold;
   margin: 0 5px;
+  text-align: end;
 }
 
+.login-block__login,
 .login-block__logout {
   font-size: 12px;
   width: 100px;

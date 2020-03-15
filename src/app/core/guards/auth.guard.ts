@@ -5,17 +5,19 @@ import { LoginService } from 'src/app/auth/services/login.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
-  constructor(@Inject(LoginService) private login: LoginService, private router: Router) {}
+  public isLogin: boolean;
+  constructor(private loginService: LoginService, private router: Router) {}
   public canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.login.isUser()) {
-      return true;
-    } else {
+    this.loginService.isUser.subscribe((sub) => {
+      this.isLogin = sub;
+    });
+    if (!this.isLogin) {
       this.router.navigate(['/login']);
-      return false;
     }
+    return this.isLogin;
   }
   public canActivateChild (
     next: ActivatedRouteSnapshot,

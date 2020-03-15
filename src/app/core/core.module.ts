@@ -7,7 +7,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { FilteringCriteriaBlockComponent }
   from './components/filtering-criteria-block/filtering-criteria-block.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { CoreService } from './services/core.service';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginBlockComponent } from './components/login-block/login-block.component';
 
@@ -40,7 +39,9 @@ const routes: Routes = [
     CoreComponent,
     RouterModule,
   ],
-  providers: [CoreService, AuthGuard],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [CoreComponent],
 })
 export class CoreModule { }
