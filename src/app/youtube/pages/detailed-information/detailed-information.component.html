@@ -2,7 +2,7 @@
   <button class="detailed-information__back-button" (click)="youtubeService.back()"></button>
 </div>
 <div class="detailed-information__photo">
-  <a ><img *ngIf="(card | async) as card" [src]="card.snippet.thumbnails.high.url" alt=""></a>
+  <img *ngIf="(card | async) as card" [src]="card.snippet.thumbnails.high.url" alt="">
 </div>
 <div class="detailed-information__card-info">
   <div class="detailed-information__title">

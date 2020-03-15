@@ -74,7 +74,11 @@ export class YoutubeService {
     })
     .pipe(
       map((val) => {
-        return val.items[0];
+        if (val.items[0]) {
+          return val.items[0];
+        } else {
+          this.router.navigate(['/404']);
+        }
       })
     );
   }
