@@ -1,0 +1,1 @@
+<app-search-result-item *ngFor="let item of youtubeService.searchData | sort:youtubeService.orderBy:youtubeService.arrow | wordFilter:coreService.filterValue:coreService.isFilter" [dataItem]="item" [appBorderColor]="item.snippet.publishedAt"></app-search-result-item>

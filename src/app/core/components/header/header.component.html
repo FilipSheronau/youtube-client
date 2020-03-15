@@ -1,0 +1,19 @@
+<div class="header__container">
+  <app-login-block class="header__login-block"></app-login-block>
+  <img class="header__logo" src="../../../../assets/img/logo.png" alt="">
+  <form class="header__form">
+    <div class="header__search-input">
+      <input
+        type="text"
+        name="searchTag"
+        #searchInput
+        [(ngModel)]="coreService.searchValue"
+        [placeholder]="searchPlaceHolder"
+        (focus)="searchPlaceHolder = ''"
+        (blur)="searchPlaceHolder = searchPlaceHolderStr;"
+        (input)="search($event)"
+      >
+    </div>
+    <button class="header__settings-button" (click)="toggleSettings($event)"></button>
+  </form>
+</div>

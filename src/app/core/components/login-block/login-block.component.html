@@ -1,0 +1,8 @@
+<div class="login-block__container">
+  <a class="login-block__login" *ngIf="!isLogin; else logout " (click)="loginService.login()">Login</a>
+  <ng-template #logout>
+    <span class="login-block__login-name">{{userName}}</span>
+    <a class="login-block__logout" (click)="loginService.logout()">Logout</a>
+  </ng-template>
+</div>
+<button class="login-block__login-logo" title="Login Page" (click)="loginService.login()"></button>

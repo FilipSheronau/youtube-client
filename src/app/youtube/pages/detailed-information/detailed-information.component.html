@@ -1,0 +1,38 @@
+<div class="detailed-information__back">
+  <button class="detailed-information__back-button" (click)="youtubeService.back()"></button>
+</div>
+<div class="detailed-information__photo">
+  <img *ngIf="(card | async) as card" [src]="card.snippet.thumbnails.high.url" alt="">
+</div>
+<div class="detailed-information__card-info">
+  <div class="detailed-information__title">
+    <span *ngIf="(card | async) as card">{{card.snippet.publishedAt | date: 'fullDate'}}</span>
+    <h2 *ngIf="(card | async) as card">{{card.snippet.title}}</h2>
+  </div>
+  <div class="description" *ngIf="(card | async) as card">
+    <h4>Description:</h4>
+    {{card.snippet.description}}
+  </div>
+  <div>
+
+  </div>
+  <ul class="detailed-information__statistical-info">
+    <li class="detailed-information__views-count">
+      <img src="../../../../assets/img/viewed.png" alt="">
+      <span *ngIf="(card | async) as card">{{card.statistics.viewCount}}</span>
+    </li>
+    <li class="detailed-information__likes-count">
+      <img src="../../../../assets/img/liked.png" alt="">
+      <span *ngIf="(card | async) as card">{{card.statistics.likeCount}}</span>
+    </li>
+    <li class="detailed-information__dislikes-count">
+      <img src="../../../../assets/img/dislike.png" alt="">
+      <span *ngIf="(card | async) as card">{{card.statistics.dislikeCount}}</span>
+    </li>
+    <li class="detailed-information__comments-count">
+      <img src="../../../../assets/img/comments.png" alt="">
+      <span *ngIf="(card | async) as card">{{card.statistics.commentCount}}</span>
+    </li>
+  </ul>
+  <div class="border"></div>
+</div>
